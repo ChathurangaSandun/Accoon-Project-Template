@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AccoonProjectTemplate/Application/Accoon.Application/obj
+/AccoonProjectTemplate/Domain/Accoon.Domain/obj
+/AccoonProjectTemplate/Infastructure/Accoon.Infastructure/obj
+/AccoonProjectTemplate/Persistence/Accoon.Persistence/obj
+/AccoonProjectTemplate/Presenter/Accoon.Api/obj
+/AccoonProjectTemplate/.vs/AccoonProjectTemplate/v16/Server/sqlite3
