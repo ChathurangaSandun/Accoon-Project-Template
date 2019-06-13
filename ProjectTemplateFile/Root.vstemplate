@@ -1,0 +1,51 @@
+﻿<VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Accoon Project Template</Name>
+    <Description>Domain Driven Design: Backend Solution Template</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Accoon</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>icon.png</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      
+      <SolutionFolder Name="Application">
+        <ProjectTemplateLink ProjectName="Accoon.$projectname$.Application">
+          Accoon.Application\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+      
+    <SolutionFolder Name="Presenter">
+        <ProjectTemplateLink ProjectName="Accoon.$projectname$.Presenter">
+          Accoon.Api\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+      
+     <SolutionFolder Name="Domain">
+        <ProjectTemplateLink ProjectName="Accoon.$projectname$.Domain">
+          Accoon.Domain\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+      
+      <SolutionFolder Name="Infastructure">
+        <ProjectTemplateLink ProjectName="Accoon.$projectname$.Infastructure">
+          Accoon.Infastructure\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+      
+    <SolutionFolder Name="Persistence">
+        <ProjectTemplateLink ProjectName="Accoon.$projectname$.Persistence">
+          Accoon.Persistence\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+      
+    </ProjectCollection>
+  </TemplateContent>
+</VSTemplate>
