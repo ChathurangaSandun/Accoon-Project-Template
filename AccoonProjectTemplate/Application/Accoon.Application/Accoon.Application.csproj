@@ -1,13 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <CodeAnalysisRuleSet>CustomCodeAnalysisRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Infastructure\" />
     <Folder Include="Interfaces\" />
     <Folder Include="UserCases\Customer\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
