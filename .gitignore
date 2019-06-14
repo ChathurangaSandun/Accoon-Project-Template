@@ -8,3 +8,11 @@
 /AccoonProjectTemplate/Persistence/Accoon.Persistence/obj
 /AccoonProjectTemplate/Presenter/Accoon.Api/obj
 /AccoonProjectTemplate/.vs/AccoonProjectTemplate/v16/Server/sqlite3
+/.vs
+/ProjectTemplateFile/Accoon.Api/obj
+/ProjectTemplateFile/Accoon.Application/obj/Debug/netcoreapp2.2
+/ProjectTemplateFile/Accoon.Application/obj/Release/netcoreapp2.2
+/ProjectTemplateFile/Accoon.Domain/obj
+/ProjectTemplateFile/Accoon.Infastructure/obj
+/ProjectTemplateFile/Accoon.Persistence/obj/Debug/netcoreapp2.2
+/ProjectTemplateFile/Accoon.Persistence/obj/Release/netcoreapp2.2
