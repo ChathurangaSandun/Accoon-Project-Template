@@ -16,3 +16,7 @@
 /ProjectTemplateFile/Accoon.Infastructure/obj
 /ProjectTemplateFile/Accoon.Persistence/obj/Debug/netcoreapp2.2
 /ProjectTemplateFile/Accoon.Persistence/obj/Release/netcoreapp2.2
+/AccoonProjectTemplate/Application/Accoon.Application/bin/Debug/netcoreapp2.2
+/AccoonProjectTemplate/Domain/Accoon.Domain/bin/Debug/netcoreapp2.2
+/AccoonProjectTemplate/Infastructure/Accoon.Infastructure/bin/Debug/netcoreapp2.2
+/AccoonProjectTemplate/Persistence/Accoon.Persistence/bin/Debug/netcoreapp2.2

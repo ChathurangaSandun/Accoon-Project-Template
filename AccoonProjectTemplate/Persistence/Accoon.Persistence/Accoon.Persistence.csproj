@@ -4,4 +4,11 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Configurations\" />
+    <Folder Include="Infastructure\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="DatabaseContext\" />
+  </ItemGroup>
+
 </Project>

@@ -13,15 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistenace", "Persistenac
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presenter", "Presenter", "{80ECD769-0F01-4482-B6CC-F11952303CBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accoon.Application", "Application\Accoon.Application\Accoon.Application.csproj", "{1539DAC2-48CC-48FD-AD52-1B8FF3272755}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accoon.Application", "Application\Accoon.Application\Accoon.Application.csproj", "{1539DAC2-48CC-48FD-AD52-1B8FF3272755}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accoon.Domain", "Domain\Accoon.Domain\Accoon.Domain.csproj", "{1DCA37B6-DA4C-462F-9423-0A04C726D3D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accoon.Domain", "Domain\Accoon.Domain\Accoon.Domain.csproj", "{1DCA37B6-DA4C-462F-9423-0A04C726D3D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accoon.Api", "Presenter\Accoon.Api\Accoon.Api.csproj", "{C6DBA59F-602F-4686-A1EF-1CC34BC1B712}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accoon.Api", "Presenter\Accoon.Api\Accoon.Api.csproj", "{C6DBA59F-602F-4686-A1EF-1CC34BC1B712}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accoon.Infastructure", "Infastructure\Accoon.Infastructure\Accoon.Infastructure.csproj", "{6FD579FF-E318-4ED1-B76C-D6825617B81B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accoon.Infastructure", "Infastructure\Accoon.Infastructure\Accoon.Infastructure.csproj", "{6FD579FF-E318-4ED1-B76C-D6825617B81B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accoon.Persistence", "Persistence\Accoon.Persistence\Accoon.Persistence.csproj", "{BAE8714C-1ECC-4B80-A194-1A8459707855}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accoon.Persistence", "Persistence\Accoon.Persistence\Accoon.Persistence.csproj", "{BAE8714C-1ECC-4B80-A194-1A8459707855}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
