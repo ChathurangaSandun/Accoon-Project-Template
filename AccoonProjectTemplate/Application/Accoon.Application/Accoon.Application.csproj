@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Entities\Exceptions\" />
     <Folder Include="Infastructure\" />
     <Folder Include="Interfaces\" />
     <Folder Include="UserCases\Customer\" />
