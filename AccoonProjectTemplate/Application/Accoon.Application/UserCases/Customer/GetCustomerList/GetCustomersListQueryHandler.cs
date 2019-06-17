@@ -1,5 +1,4 @@
 ﻿using Accoon.Application.Interfaces.Database;
-using Accoon.CQRSCAApi.Application.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
