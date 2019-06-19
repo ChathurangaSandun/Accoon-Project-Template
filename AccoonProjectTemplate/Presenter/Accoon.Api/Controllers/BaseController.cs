@@ -12,6 +12,7 @@ namespace Accoon.Api.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
     public class BaseController : ControllerBase
     {
         private IMediator mediator;
