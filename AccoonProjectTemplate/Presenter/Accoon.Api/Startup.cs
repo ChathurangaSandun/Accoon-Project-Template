@@ -1,27 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using Accoon.Api.Infastructure;
+using Accoon.Api.Middlewares;
 using Accoon.Application.Infastructure.Automapper;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using AutoMapper;
-using Accoon.Persistence.DatabaseContext;
-using Microsoft.EntityFrameworkCore;
 using Accoon.Application.Interfaces.Database;
 using Accoon.Application.UserCases.Customer.CreateCustomer;
-using MediatR;
-using System.Diagnostics;
-using Swashbuckle.AspNetCore.Swagger;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Accoon.Persistence.DatabaseContext;
+using AutoMapper;
+using FluentValidation.AspNetCore;
 using HealthChecks.UI.Client;
+using MediatR;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
+using System.Reflection;
 
 namespace Accoon.Api
 {
@@ -37,8 +32,27 @@ namespace Accoon.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                // fluent validation
+                .AddFluentValidation(
+                fv =>
+                {
+                    fv.RegisterValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>();
+                    fv.ImplicitlyValidateChildProperties = true;
+                })
+                // handle 404 error
+                .ConfigureApiBehaviorOptions(options =>
+                {
+                    options.InvalidModelStateResponseFactory = context =>
+                    {
+                        var problems = new CustomBadRequest(context);
+                        return new BadRequestObjectResult(problems);
+                    };
+
+                    options.ClientErrorMapping[404] = new ClientErrorData() { Link = "", Title = "Not found resources" };
+                })
+                ;
+
             // register auto mapper
             services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
 
@@ -48,6 +62,7 @@ namespace Accoon.Api
                 (options => options.UseSqlServer(connectionString, x => x.MigrationsAssembly("Accoon.Persistence")));
             services.AddTransient<IDatabaseContext, DefaultDatabaseContext>();
 
+            // register mediatr and command handlers
             services.AddMediatR(typeof(CreateCustomerHandler).GetTypeInfo().Assembly);
 
             // Swagger
@@ -83,11 +98,14 @@ namespace Accoon.Api
             }
 
             // Enable swagger middleware 
-            app.UseSwagger();            
+            app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+
+            // handle error handling globaly using middleware
+            app.ConfigureExceptionHandler(env);
 
             app.UseHttpsRedirection();
             app.UseMvc();
