@@ -13,13 +13,6 @@ namespace Accoon.Api.Controllers
 {    
     public class CustomersController : BaseController
     {
-
-
-        public CustomersController()
-        {
-
-        }
-
         [Route("")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
