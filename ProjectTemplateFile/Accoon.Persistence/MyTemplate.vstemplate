@@ -16,7 +16,20 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="Accoon.Persistence.csproj" File="Accoon.Persistence.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="Class1.cs">Class1.cs</ProjectItem>
+      <Folder Name="Configurations" TargetFolderName="Configurations">
+        <ProjectItem ReplaceParameters="true" TargetFileName="CustomerConfiguration.cs">CustomerConfiguration.cs</ProjectItem>
+      </Folder>
+      <Folder Name="DatabaseContext" TargetFolderName="DatabaseContext">
+        <ProjectItem ReplaceParameters="true" TargetFileName="DatabaseContext.cs">DatabaseContext.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Infastructure" TargetFolderName="Infastructure">
+        <ProjectItem ReplaceParameters="true" TargetFileName="DummyInfastructure.cs">DummyInfastructure.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Migrations" TargetFolderName="Migrations">
+        <ProjectItem ReplaceParameters="true" TargetFileName="20190618113520_InitMigration.cs">20190618113520_InitMigration.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="20190618113520_InitMigration.Designer.cs">20190618113520_InitMigration.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="DatabaseContextModelSnapshot.cs">DatabaseContextModelSnapshot.cs</ProjectItem>
+      </Folder>
     </Project>
   </TemplateContent>
 </VSTemplate>

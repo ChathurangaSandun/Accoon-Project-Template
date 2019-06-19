@@ -16,7 +16,57 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="Accoon.Application.csproj" File="Accoon.Application.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="Class1.cs">Class1.cs</ProjectItem>
+      <Folder Name="Entities" TargetFolderName="Entities">
+        <Folder Name="Automapper" TargetFolderName="Automapper">
+          <ProjectItem ReplaceParameters="true" TargetFileName="Map.cs">Map.cs</ProjectItem>
+        </Folder>
+        <Folder Name="Exceptions" TargetFolderName="Exceptions">
+          <ProjectItem ReplaceParameters="true" TargetFileName="Class1.cs">Class1.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Infastructure" TargetFolderName="Infastructure">
+        <Folder Name="Automapper" TargetFolderName="Automapper">
+          <ProjectItem ReplaceParameters="true" TargetFileName="AutoMapperProfile.cs">AutoMapperProfile.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="MapperProfileHelper.cs">MapperProfileHelper.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Interfaces" TargetFolderName="Interfaces">
+        <Folder Name="Automapper" TargetFolderName="Automapper">
+          <ProjectItem ReplaceParameters="true" TargetFileName="IHaveCustomMapping.cs">IHaveCustomMapping.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="IMapFrom.cs">IMapFrom.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="IMapTo.cs">IMapTo.cs</ProjectItem>
+        </Folder>
+        <Folder Name="Database" TargetFolderName="Database">
+          <ProjectItem ReplaceParameters="true" TargetFileName="IDatabaseContext.cs">IDatabaseContext.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Notification" TargetFolderName="Notification">
+        <Folder Name="Model" TargetFolderName="Model">
+          <ProjectItem ReplaceParameters="true" TargetFileName="Message.cs">Message.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="UserCases" TargetFolderName="UserCases">
+        <Folder Name="Customer" TargetFolderName="Customer">
+          <Folder Name="CreateCustomer" TargetFolderName="CreateCustomer">
+            <ProjectItem ReplaceParameters="true" TargetFileName="CreateCustomerCommand.cs">CreateCustomerCommand.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="CreateCustomerCommandValidator.cs">CreateCustomerCommandValidator.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="CreateCustomerHandler.cs">CreateCustomerHandler.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="CustomerCreated.cs">CustomerCreated.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="CustomerCreatedHandler.cs">CustomerCreatedHandler.cs</ProjectItem>
+          </Folder>
+          <Folder Name="GetCustomer" TargetFolderName="GetCustomer">
+            <ProjectItem ReplaceParameters="true" TargetFileName="CustomerModel.cs">CustomerModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="GetCustomerQuery.cs">GetCustomerQuery.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="GetCustomerQueryHandler.cs">GetCustomerQueryHandler.cs</ProjectItem>
+          </Folder>
+          <Folder Name="GetCustomerList" TargetFolderName="GetCustomerList">
+            <ProjectItem ReplaceParameters="true" TargetFileName="CustomerDetailModel.cs">CustomerDetailModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="CustomerListViewModel.cs">CustomerListViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="GetCustomersListQuery.cs">GetCustomersListQuery.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="GetCustomersListQueryHandler.cs">GetCustomersListQueryHandler.cs</ProjectItem>
+          </Folder>
+        </Folder>
+      </Folder>
     </Project>
   </TemplateContent>
 </VSTemplate>

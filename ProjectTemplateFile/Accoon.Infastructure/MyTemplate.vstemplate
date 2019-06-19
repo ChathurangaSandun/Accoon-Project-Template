@@ -16,7 +16,9 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="Accoon.Infastructure.csproj" File="Accoon.Infastructure.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="Class1.cs">Class1.cs</ProjectItem>
+      <Folder Name="Services" TargetFolderName="Services">
+        <ProjectItem ReplaceParameters="true" TargetFileName="DummyService.cs">DummyService.cs</ProjectItem>
+      </Folder>
     </Project>
   </TemplateContent>
 </VSTemplate>

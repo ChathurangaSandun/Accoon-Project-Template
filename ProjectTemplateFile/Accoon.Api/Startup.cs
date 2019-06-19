@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using Accoon.Application.Infastructure.Automapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +12,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using AutoMapper;
+using Accoon.Persistence.DatabaseContext;
+using Microsoft.EntityFrameworkCore;
+using Accoon.Application.Interfaces.Database;
+using Accoon.Application.UserCases.Customer.CreateCustomer;
+using MediatR;
+using System.Diagnostics;
 
 namespace $safeprojectname$
 {
@@ -26,6 +35,17 @@ namespace $safeprojectname$
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            
+            // register auto mapper
+            services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
+
+            // register db context and migration assebly
+            var connectionString = Configuration.GetConnectionString("Context").ToString();
+            services.AddDbContext<DefaultDatabaseContext>
+                (options => options.UseSqlServer(connectionString, x => x.MigrationsAssembly("Accoon.Persistence")));
+            services.AddTransient<IDatabaseContext, DefaultDatabaseContext>();
+
+            services.AddMediatR(typeof(CreateCustomerHandler).GetTypeInfo().Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

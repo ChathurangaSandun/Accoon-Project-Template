@@ -16,7 +16,25 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="Accoon.Domain.csproj" File="Accoon.Domain.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="Class1.cs">Class1.cs</ProjectItem>
+      <Folder Name="Common" TargetFolderName="Common">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Entity.cs">Entity.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IEntity.cs">IEntity.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Entities" TargetFolderName="Entities">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Customer.cs">Customer.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Enums" TargetFolderName="Enums">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Class1.cs">Class1.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Exceptions" TargetFolderName="Exceptions">
+        <ProjectItem ReplaceParameters="true" TargetFileName="DummyException.cs">DummyException.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Infastructure" TargetFolderName="Infastructure">
+        <ProjectItem ReplaceParameters="true" TargetFileName="DummyInfascructure.cs">DummyInfascructure.cs</ProjectItem>
+      </Folder>
+      <Folder Name="ValueObject" TargetFolderName="ValueObject">
+        <ProjectItem ReplaceParameters="true" TargetFileName="DummyValueobject.cs">DummyValueobject.cs</ProjectItem>
+      </Folder>
     </Project>
   </TemplateContent>
 </VSTemplate>
