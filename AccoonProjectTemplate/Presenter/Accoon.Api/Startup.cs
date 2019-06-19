@@ -20,6 +20,8 @@ using Accoon.Application.UserCases.Customer.CreateCustomer;
 using MediatR;
 using System.Diagnostics;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using HealthChecks.UI.Client;
 
 namespace Accoon.Api
 {
@@ -53,11 +55,23 @@ namespace Accoon.Api
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
+
+            // health check
+            services.AddHealthChecks()
+               .AddSqlServer(connectionString); // sql server health check
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            // healthcheck middleware
+            app.UseHealthChecks("/hc",
+                new HealthCheckOptions()
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
