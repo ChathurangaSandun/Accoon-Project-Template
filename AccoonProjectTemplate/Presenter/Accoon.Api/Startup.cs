@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Serilog;
 using Swashbuckle.AspNetCore.Swagger;
 using System.Reflection;
 
@@ -24,6 +26,7 @@ namespace Accoon.Api
     {
         public Startup(IConfiguration configuration)
         {
+            Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(configuration).CreateLogger();
             Configuration = configuration;
         }
 
@@ -50,8 +53,7 @@ namespace Accoon.Api
                     };
 
                     options.ClientErrorMapping[404] = new ClientErrorData() { Link = "", Title = "Not found resources" };
-                })
-                ;
+                });
 
             // register auto mapper
             services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
@@ -77,7 +79,7 @@ namespace Accoon.Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             // healthcheck middleware
             app.UseHealthChecks("/hc",
@@ -86,6 +88,8 @@ namespace Accoon.Api
                     Predicate = _ => true,
                     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
                 });
+
+            loggerFactory.AddSerilog();
 
             if (env.IsDevelopment())
             {
