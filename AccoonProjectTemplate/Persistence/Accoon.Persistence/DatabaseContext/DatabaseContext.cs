@@ -20,9 +20,6 @@ namespace Accoon.Persistence.DatabaseContext
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DefaultDatabaseContext).Assembly);
         }
-
-
-
     }
 }
 
